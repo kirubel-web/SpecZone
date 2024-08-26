@@ -84,9 +84,13 @@ nav .navbar .menu {
 
   .menu {
     display: none;
-    flex-direction: column;
+    flex-direction: row;
     width: 100%;
     background: rgb(83, 133, 158);
+    padding-left: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
     position: absolute;
     top: 60px;
     left: 0;
@@ -95,12 +99,12 @@ nav .navbar .menu {
 
   ul.menu.open {
     display: none;
-    max-height: 100vh;
   }
 
   .menu li {
     text-align: center;
-    margin: 10px 0;
+
+    padding-left: 0px;
   }
 }
 
