@@ -33,6 +33,10 @@ app.get("/search", async (req, res) => {
       .json({ error: "An error occurred while searching for phones" });
   }
 });
+
+app.get("/", (req, res) => {
+  res.send("Hello, World!");
+});
 // Connect to MongoDB
 mongoose
   .connect(process.env.MONGO_URI, {
