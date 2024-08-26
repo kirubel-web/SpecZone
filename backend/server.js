@@ -1,4 +1,3 @@
-// server.js
 const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
@@ -17,6 +16,7 @@ app.use(
   }),
 );
 app.use(express.json());
+
 app.get("/search", async (req, res) => {
   const query = req.query.q;
   if (!query) {
@@ -37,6 +37,7 @@ app.get("/search", async (req, res) => {
 app.get("/", (req, res) => {
   res.send("Hello, World!");
 });
+
 // Connect to MongoDB
 mongoose
   .connect(process.env.MONGO_URI, {
@@ -49,7 +50,5 @@ mongoose
 // Use routes
 app.use("/api/auth", authRoutes);
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-
+// Export the app for Vercel
 module.exports = app;
