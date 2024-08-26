@@ -9,15 +9,13 @@ const gsmarena = require("gsmarena-api");
 dotenv.config();
 
 const app = express();
-app.use(cors(
-	{
-		origin: [http://localhost:3000/],
-		methods: ["GET", "POST"],
-		credentials: true,
-
-	}
-
-));
+app.use(
+  cors({
+    origin: ["*"],
+    methods: ["GET", "POST"],
+    credentials: true,
+  }),
+);
 app.use(express.json());
 app.get("/search", async (req, res) => {
   const query = req.query.q;
