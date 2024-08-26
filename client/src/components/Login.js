@@ -1,27 +1,30 @@
-import React, { useState, useContext } from 'react';
-import { AuthContext } from '../context/AuthContext';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useState, useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
+import { Link, useNavigate } from "react-router-dom";
 import "./styles.css";
 
 export default function Login() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const { login } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError('');
+    setError("");
 
     try {
-      const response = await fetch('http://127.0.0.1:5000/api/auth/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
+      const response = await fetch(
+        "https://spec-zone.vercel.app/api/auth/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email, password }),
         },
-        body: JSON.stringify({ email, password }),
-      });
+      );
 
       const data = await response.json();
       if (response.ok) {
@@ -29,10 +32,10 @@ export default function Login() {
         console.log("Successful login"); // Debugging message
         navigate("/");
       } else {
-        setError(data.message || 'Invalid credentials');
+        setError(data.message || "Invalid credentials");
       }
     } catch (err) {
-      setError('An error occurred. Please try again.');
+      setError("An error occurred. Please try again.");
     }
   };
 
@@ -74,10 +77,16 @@ export default function Login() {
         <span>or</span>
       </div>
       <div className="social-login">
-        <button className="social-btn" onClick={() => handleSocialLogin('Google')}>
+        <button
+          className="social-btn"
+          onClick={() => handleSocialLogin("Google")}
+        >
           Login with Google
         </button>
-        <button className="social-btn" onClick={() => handleSocialLogin('Facebook')}>
+        <button
+          className="social-btn"
+          onClick={() => handleSocialLogin("Facebook")}
+        >
           Login with Facebook
         </button>
       </div>

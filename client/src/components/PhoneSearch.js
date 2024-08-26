@@ -12,7 +12,7 @@ export default function PhoneSearch() {
     setError(null);
     try {
       const response = await fetch(
-        `https://speczone-api-kirubelwebs-projects.vercel.app/search?q=${encodeURIComponent(query)}`,
+        `https://spec-zone.vercel.app/search?q=${encodeURIComponent(query)}`,
       );
       if (!response.ok) {
         const errorData = await response.json();
