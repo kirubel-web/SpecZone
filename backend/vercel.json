@@ -14,6 +14,7 @@
   ],
   "env": {
     "MONGO_URI": "@mongo_uri",
+    "JWT_SECRET": "@jwt_secret",
     "PORT": "5000"
   }
 }
