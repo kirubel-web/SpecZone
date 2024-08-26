@@ -1,0 +1,207 @@
+.userprofile-container {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.userprofile-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.userprofile-header h1 {
+  font-size: 2.5rem;
+  color: #1877f2;
+}
+
+.userprofile-main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.profile-section {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition:
+    background-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.user-info {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: flex-start;
+}
+
+.profile-picture {
+  margin-right: 30px;
+  text-align: center;
+}
+
+.profile-picture img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #1877f2;
+}
+
+.change-picture-btn {
+  margin-top: 10px;
+  background-color: #1877f2;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.change-picture-btn:hover {
+  background-color: #166fe5;
+}
+
+.profile-details {
+  flex-grow: 1;
+}
+
+.profile-details h2 {
+  margin-top: 0;
+  color: #1877f2;
+}
+
+.user-bio {
+  font-style: italic;
+  color: #65676b;
+  margin-bottom: 15px;
+}
+
+.edit-button {
+  background-color: #1877f2;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.edit-button:hover {
+  background-color: #166fe5;
+}
+
+.edit-button.save {
+  background-color: #42b72a;
+}
+
+.edit-button.save:hover {
+  background-color: #36a420;
+}
+
+.edit-input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #dddfe2;
+  border-radius: 5px;
+}
+
+.bio-input {
+  height: 100px;
+  resize: vertical;
+}
+
+.activity-list,
+.reviews-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.activity-list li,
+.review-card {
+  background-color: #f0f2f5;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.activity-icon {
+  margin-right: 10px;
+  font-size: 1.2em;
+}
+
+.review-card h4 {
+  margin-top: 0;
+  color: #1877f2;
+}
+
+.rating {
+  color: #f9ba48;
+  margin-bottom: 5px;
+}
+
+.back-button {
+  background-color: #1877f2;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+.back-button:hover {
+  background-color: #166fe5;
+}
+
+/* Dark mode styles */
+.dark-mode {
+  background-color: #18191a;
+  color: #e4e6eb;
+}
+
+.dark-mode .profile-section {
+  background-color: #242526;
+  box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .activity-list li,
+.dark-mode .review-card {
+  background-color: #3a3b3c;
+}
+
+.dark-mode .user-bio {
+  color: #b0b3b8;
+}
+
+.dark-mode .edit-input {
+  background-color: #3a3b3c;
+  border-color: #4e4f50;
+  color: #e4e6eb;
+}
+
+@media (max-width: 768px) {
+  .userprofile-main {
+    grid-template-columns: 1fr;
+  }
+
+  .user-info {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .profile-picture {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+}
