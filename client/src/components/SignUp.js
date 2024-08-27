@@ -1,36 +1,39 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import "./styles.css";
 
 export default function SignUp() {
-  const [email, setEmail] = useState('');
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError('');
+    setError("");
 
     try {
-      const response = await fetch('http://127.0.0.1:5000/api/auth/register', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
+      const response = await fetch(
+        "https://spec-zone.vercel.app/api/auth/register",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email, username, password }),
         },
-        body: JSON.stringify({ email, username, password }),
-      });
+      );
 
       const data = await response.json();
       if (response.ok) {
         // Redirect to login after successful signup
         navigate("/login");
       } else {
-        setError(data.message || 'Registration failed');
+        setError(data.message || "Registration failed");
       }
     } catch (err) {
-      setError('An error occurred. Please try again.');
+      setError("An error occurred. Please try again.");
     }
   };
 
@@ -83,10 +86,16 @@ export default function SignUp() {
         <span>or</span>
       </div>
       <div className="social-login">
-        <button className="social-btn" onClick={() => handleSocialSignUp('Google')}>
+        <button
+          className="social-btn"
+          onClick={() => handleSocialSignUp("Google")}
+        >
           Sign up with Google
         </button>
-        <button className="social-btn" onClick={() => handleSocialSignUp('Facebook')}>
+        <button
+          className="social-btn"
+          onClick={() => handleSocialSignUp("Facebook")}
+        >
           Sign up with Facebook
         </button>
       </div>

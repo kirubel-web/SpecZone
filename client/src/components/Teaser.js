@@ -6,7 +6,7 @@ import "./teaser.css";
 
 export default function Teaser() {
   const [showNavbar, setShowNavbar] = useState(true);
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(true);
 
   const toggleMenu = () => {
     console.log("Menu Toggled");
