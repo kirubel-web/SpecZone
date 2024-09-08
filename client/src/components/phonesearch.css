@@ -1,13 +1,13 @@
 .phone-search-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 10px;
   font-family: "Arial", sans-serif;
 }
 
 .search-form {
   display: flex;
-  margin-bottom: 30px;
+
 }
 
 .search-input {
@@ -28,6 +28,14 @@
   border-radius: 0 4px 4px 0;
   cursor: pointer;
   transition: background-color 0.3s ease;
+}
+@media (max-width: 768px) {
+
+.search-input{
+  padding: 10px 10px;
+  margin-bottom: 0px;
+}
+
 }
 
 .search-button:hover {
