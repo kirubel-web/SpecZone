@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import About from "./About";
 import FeatureSection from "./FeatureSection";
 import "./teaser.css";
-import gsap from "gsap";
+
 
 export default function Teaser() {
   const [showNavbar, setShowNavbar] = useState(true);
