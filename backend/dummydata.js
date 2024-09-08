@@ -1,7 +1,16 @@
-const mongoose = require('mongoose');
-const User = require('./models/User');
-const Category = require('./models/Category');
+const mongoose = require("mongoose");
+const User = require("./models/User");
+const Category = require("./models/Category");
+const fs = require("fs");
+const Laptop = require("./models/Laptop");
 
+const laptops = JSON.parse(
+  fs.readFileSync(
+    "/home/k/Documents/web-scraping/laptop-spec/all_laptops.json",
+    "utf-8",
+  ),
+);
+/*
 const users = [
     {
         username: "john_doe",
@@ -38,14 +47,18 @@ const categories = [
         createdAt: new Date("2024-08-12T09:00:00Z"),
         updatedAt: new Date("2024-08-12T09:00:00Z")
     }
-];
+];*/
 
-mongoose.connect('mongodb+srv://japi:japi@cluster0.hlxjpnn.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(async () => {
-        await User.insertMany(users);
-        await Category.insertMany(categories);
-        console.log('Dummy data inserted successfully');
-        mongoose.connection.close();
-    })
-    .catch(err => console.error('Error inserting data:', err));
-
+mongoose
+  .connect(
+    "mongodb+srv://japi:japi@cluster0.hlxjpnn.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
+    { useNewUrlParser: true, useUnifiedTopology: true },
+  )
+  .then(async () => {
+    console.log(laptops);
+    await Laptop.insertMany(laptops);
+    /* await Category.insertMany(categories);*/
+    console.log("Dummy data inserted successfully");
+    mongoose.connection.close();
+  })
+  .catch((err) => console.error("Error inserting data:", err));

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import About from "./About";
 import FeatureSection from "./FeatureSection";
 import "./teaser.css";
+import gsap from "gsap";
 
 export default function Teaser() {
   const [showNavbar, setShowNavbar] = useState(true);
@@ -83,9 +84,9 @@ export default function Teaser() {
               <h3>Basic</h3>
               <div className="price">$0/mo</div>
               <ul>
-                <li>Feature 1</li>
-                <li>Feature 2</li>
-                <li>Feature 3</li>
+                <li>search</li>
+                <li>specifications</li>
+                <li>reviews</li>
               </ul>
               <Link to="#" className="btn">
                 Select Plan
@@ -96,9 +97,9 @@ export default function Teaser() {
               <div className="price">$9/mo</div>
               <ul>
                 <li>All Basic Features</li>
-                <li>Feature 4</li>
-                <li>Feature 5</li>
-                <li>Feature 6</li>
+                <li>comparisons</li>
+                <li>discounts</li>
+                <li>get notified</li>
               </ul>
               <Link to="#" className="btn">
                 Select Plan
@@ -109,8 +110,7 @@ export default function Teaser() {
               <div className="price">$19/mo</div>
               <ul>
                 <li>All Pro Features</li>
-                <li>Feature 7</li>
-                <li>Feature 8</li>
+                <li>AI Comparisons</li>
                 <li>Priority Support</li>
               </ul>
               <Link to="#" className="btn">

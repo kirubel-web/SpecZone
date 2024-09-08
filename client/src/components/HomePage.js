@@ -3,15 +3,13 @@ import { AuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import "./homepage.css";
 import PhoneSearch from "./PhoneSearch";
+import LaptopSearch from "./LaptopSearch";
 export default function HomePage() {
   const { user, logout } = useContext(AuthContext);
   const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
 
-  const handleSearch = (e) => {
-    e.preventDefault();
-    console.log("Searching for:", searchTerm);
-  };
+
 
   const goToProfile = () => {
     navigate("/profile"); // Navigate to the user profile page
@@ -36,23 +34,8 @@ export default function HomePage() {
         </p>
       </header>
 
-      {/* Search Form */}
-      <div className="search-container">
-        <form onSubmit={handleSearch}>
-          <input
-            type="text"
-            placeholder="Search for devices..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            className="search-input"
-          />
-          <button type="submit" className="search-button">
-            Search
-          </button>
-        </form>
-      </div>
-
       <PhoneSearch />
+      <LaptopSearch />
 
       {/* Main Content */}
       <main>
